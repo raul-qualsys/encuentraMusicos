@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.GenerosMusicalesVW"
+             BackgroundImageSource="femsinger.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <StackLayout Orientation="Horizontal"
+                     Grid.Row="1">
+                <Image Source="logoloading.png"
+                   HeightRequest="40"
+                   Margin="55,0,0,0"
+                   HorizontalOptions="CenterAndExpand"/>
+                <Image Source="back.png"
+                   HorizontalOptions="End"
+                   Margin="0,10,20,0"
+                   WidthRequest="30"
+                   x:Name="btnBack">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goBack"
+                                          NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label Grid.Row="2" 
+               Text="Géneros Musicales"
+               TextColor="White"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"
+               x:Name="lbTituloGenerosMusicales"/>
+            <Frame Grid.Row="3"
+               Margin="15,0"
+               CornerRadius="25"
+               IsClippedToBounds="True"
+               Padding="0">
+                <Entry x:Name="busquedaGeneroMusical"
+                   Placeholder="Genero Musical"
+                   Margin="15,0"
+                   ClearButtonVisibility="WhileEditing"
+                   TextChanged="busquedaChanged"/>
+            </Frame>
+            <Label x:Name="lblTitle"
+                   Text="Elige uno o más géneros que tocas"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   Grid.Row="4"/>
+            <CollectionView ItemsSource="{Binding MisGeneros}"
+                        Grid.Row="5"
+                        Margin="15,0"
+                        x:Name="misGenerosCV"
+                        ItemsLayout="VerticalGrid, 2"
+                        SelectionMode="Single"
+                        SelectionChanged="eliminarGenero">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#e97e62"
+                           BorderColor="Black"
+                           CornerRadius="10"
+                           Padding="40,35"
+                           IsClippedToBounds="True">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Label Text="{Binding descripcion}"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="{Binding fontSz}"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Generos}"
+                        Grid.Row="6"
+                        Margin="15,0,75,0"
+                        SelectionMode="Single"
+                        SelectionChanged="selectGenero"
+                        x:Name="generosCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10"
+                           CornerRadius="25"
+                           BackgroundColor="#e97e62"
+                           BorderColor="Black"
+                           IsClippedToBounds="True">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Label Text="{Binding descripcion}"
+                               TextColor="White"
+                               Margin="15,0"
+                               FontSize="{Binding fontSz}"
+                               FontAttributes="Bold"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Frame Grid.Row="7"
+               Margin="45,10"
+               CornerRadius="25"
+               Padding="0,5"
+               IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goBack"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="buton1.png"
+                       Grid.Row="0"
+                       HeightRequest="45"
+                       Aspect="Fill"
+                       Margin="-10"/>
+                    <Label Text="Regresar"
+                       TextColor="White"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       x:Name="regresarBtn"
+                       FontAttributes="Bold"
+                       Grid.Row="0"/>
+                </Grid>
+            </Frame>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

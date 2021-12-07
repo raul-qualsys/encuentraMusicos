@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.Opiniones"
+             BackgroundImageSource="band2.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <StackLayout Orientation="Horizontal"
+                     Grid.Row="1">
+                <Image Source="logoloading.png"
+                   HeightRequest="40"
+                   Margin="55,0,0,0"
+                   HorizontalOptions="CenterAndExpand"/>
+                <Image Source="back.png"
+                   HorizontalOptions="End"
+                   Margin="0,10,20,0"
+                   WidthRequest="30"
+                   x:Name="btnBack">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goBack"
+                                          NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label Grid.Row="2"
+               Text="Valoraciones de Clientes"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               x:Name="lbValoraciones"/>
+            <Grid Grid.Row="3"
+              Margin="15,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="Valoración General"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   x:Name="lbValGeneral"
+                   Grid.Row="0"/>
+                <StackLayout Orientation="Horizontal"
+                         Grid.Row="1">
+                    <Image x:Name="star1"
+                       HeightRequest="20"/>
+                    <Image x:Name="star2"
+                       HeightRequest="20"/>
+                    <Image x:Name="star3"
+                       HeightRequest="20"/>
+                    <Image x:Name="star4"
+                       HeightRequest="20"/>
+                    <Image x:Name="star5"
+                       HeightRequest="20"/>
+                </StackLayout>
+                <!--CollectionView de opiniones-->
+                <Label Text="Valoraciones de Clientes"
+                   x:Name="lbValClientes"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   Margin="0,15,0,0"
+                   Grid.Row="2"/>
+                <CollectionView ItemsSource="{Binding valoraciones}"
+                            x:Name="collectionMusicos"
+                            Grid.Row="3">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding nombre}"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="20,0"
+                                   FontSize="{Binding fontSizeNombre}"/>
+                                <StackLayout Orientation="Horizontal"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         HorizontalOptions="EndAndExpand"
+                                         Margin="0,0,50,0">
+                                    <Image Source="star1.png"
+                                       HeightRequest="{Binding heightStar}"
+                                       IsVisible="{Binding star1IV}"/>
+                                    <Image Source="star1.png"
+                                       HeightRequest="{Binding heightStar}"
+                                       IsVisible="{Binding star2IV}"/>
+                                    <Image Source="star1.png"
+                                       HeightRequest="{Binding heightStar}"
+                                       IsVisible="{Binding star3IV}"/>
+                                    <Image Source="star1.png"
+                                       HeightRequest="{Binding heightStar}"
+                                       IsVisible="{Binding star4IV}"/>
+                                    <Image Source="star1.png"
+                                       HeightRequest="{Binding heightStar}"
+                                       IsVisible="{Binding star5IV}"/>
+                                </StackLayout>
+                                <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   TextColor="White"
+                                   Margin="20,0"
+                                   Text="{Binding mensaje}"/>
+                                <BoxView BackgroundColor="Gray"
+                                     HeightRequest="1"
+                                     Margin="15,0,25,10"
+                                     Grid.Row="2"
+                                     Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <Button x:Name="regresarBtn"
+                Text="Regresar"
+                TextTransform="None"
+                BackgroundColor="White"
+                FontAttributes="Bold"
+                TextColor="#e97e62"
+                Margin="25,0,25,10"
+                CornerRadius="25"
+                Grid.Row="4"
+                Clicked="goBack"/>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

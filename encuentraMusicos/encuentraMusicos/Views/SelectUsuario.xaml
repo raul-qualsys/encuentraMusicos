@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.SelectUsuario"
+             BackgroundImageSource="fondoinicio.png">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal"
+          Margin="45,80,45,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+               Source="logoloading.png"
+               HeightRequest="100"
+               Margin="0,0,0,40"/>
+            <Frame Grid.Row="1"
+               x:Name="frLoginCliente"
+               Padding="0"
+               CornerRadius="25"
+               IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goLoginCliente"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5"
+                  x:Name="grLofinCliente">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Busco Músicos"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       TextColor="White"
+                       x:Name="lbLoginCliente"/>
+                    <Image Source="earphones.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imLoginCliente"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="2"
+               Padding="0"
+               CornerRadius="25"
+               x:Name="frLoginMusico"
+               IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goLoginMusico"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5"
+                  x:Name="grLofinMusico">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Soy un Músico"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       TextColor="White"
+                       x:Name="lbLoginMusico"/>
+                    <Image Source="guitar.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imLoginMusico"/>
+                </Grid>
+            </Frame>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

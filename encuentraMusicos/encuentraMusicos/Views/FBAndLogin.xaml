@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.FBAndLogin">
+    <StackLayout>
+        <ScrollView Padding="16">
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+
+                
+
+                <Frame CornerRadius="3"
+                       BackgroundColor="#4167b2"
+                       Margin="20"
+                       Padding="5"
+                       HasShadow="false"
+                       IsVisible="{Binding IsNotBusy}">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="5">
+                        <Image WidthRequest="50"
+                               HeightRequest="50"
+                               Aspect="AspectFit"
+                               Source="facebook.png" />
+                        <Label Text="Continuar con Facebook"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="FacebookButton"
+                                                  AutomationId="FacebookButton"
+                                                  Command="{Binding OnLoginCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

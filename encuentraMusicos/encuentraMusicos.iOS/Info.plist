@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>libher.info</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>8.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>Encuentra Músicos</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.falymusic.encuentraMusicos</string>
+	<key>CFBundleVersion</key>
+	<string>1.11</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>CFBundleName</key>
+	<string>EncuentraMusicos</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your current location to find near musicians</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your current location to find near musicians</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your current location to find near musicians</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Your musician profile is not complete without a photograph, please give us access to your gallery and camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your musician profile is not complete without a photograph, please give us access to your gallery and camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your musician profile is not complete without a photograph, please give us access to your gallery and camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your musician profile is not complete without a photograph, please give us access to your gallery and camera</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+</dict>
+</plist>

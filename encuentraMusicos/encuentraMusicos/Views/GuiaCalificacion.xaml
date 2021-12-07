@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.GuiaCalificacion"
+             BackgroundImageSource="band2.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <StackLayout Orientation="Horizontal"
+                     Grid.Row="1">
+                <Image Source="logoloading.png"
+                   HeightRequest="40"
+                   Margin="55,0,0,0"
+                   HorizontalOptions="CenterAndExpand"/>
+                <Image Source="back.png"
+                   HorizontalOptions="End"
+                   Margin="0,10,20,0"
+                   WidthRequest="30"
+                   x:Name="btnBack">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goBack"
+                                          NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label Grid.Row="2"
+               Text="¿Cómo funcionan las calificaciones?"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               x:Name="lbGuia"/>
+            <ScrollView Grid.Row="3">
+                <StackLayout Margin="15,0,15,15">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro0"
+                           TextColor="White"
+                           Text="El propósito de la aplicación es que tanto clientes como músicos se apoyen de la tecnología para tener acercamiento y sea más rápido y cómodo el tener contacto para concretar eventos."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro1"
+                           TextColor="White"
+                           Text="Es por ello que la aplicación cuenta con un sistema de valoración donde el cliente pueda dar su opinión del servicio recibido."/>
+                    </StackLayout>
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       Margin="30,10">
+                        <Image Source="valoracionpuntos.jpg"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro2"
+                       TextColor="White"
+                       Text="Pasados 5 días del primer contacto que el usuario haga con tu perfil de músico, la aplicación le mostrará un mensaje en el cual se le solicitará su opinión del servicio recibido."/>
+                    </StackLayout>
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       Margin="30,10">
+                        <Image Source="valoracion.jpg"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro3"
+                           TextColor="White"
+                           Text="Se cuenta con un sistema de valoración basado en estrellas, cada una cuenta 20%."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="4"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro4"
+                       TextColor="White"
+                       Text="Cuando aparezcas en los resultados de búsqueda de un usuario, se mostrarán el promedio general de valoración de los usuarios."/>
+                    </StackLayout>
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       Margin="30,10,30,5">
+                        <Image Source="valorbusqueda.jpg"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro5"
+                           TextColor="White"
+                           Text="Adicional a esto, el usuario podrá agregar un mensaje relacionado con tu servicio."/>
+                    </StackLayout>
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       Margin="30,10,30,5">
+                        <Image Source="valorfull.jpg"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro6"
+                           TextColor="White"
+                           Text="Cada que termines un evento, pide a tu cliente que esté pendiente de la solicitud de opinión para que envíe sus comentarios respecto a tu servicio."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="25"
+                           Padding="5"
+                           BackgroundColor="White"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                        <Label x:Name="intro7"
+                           TextColor="White">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Tu valoración general dependerá de las opiniones de los usuarios, por lo cual te pedimos que estés pendiente en la sección "/>
+                                    <Span x:Name="goClientes"
+                                      TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="goOpiniones"
+                                                              NumberOfTapsRequired="1"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       Margin="30,10">
+                        <Image Source="valorperfil.jpg"/>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+            <Button x:Name="regresarBtn"
+                Text="Regresar"
+                TextTransform="None"
+                BackgroundColor="White"
+                FontAttributes="Bold"
+                TextColor="#e97e62"
+                Margin="25,0,25,10"
+                CornerRadius="25"
+                Grid.Row="4"
+                Clicked="goBack"/>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.LoginAP"
+             BackgroundImageSource="band2.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal"
+              VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <Image Source="logoloading.png"
+               HeightRequest="40"
+               HorizontalOptions="CenterAndExpand"
+               Grid.Row="1"/>
+            <Label x:Name="lbLoginAP"
+               Text="Inicio de Sesión"
+               Grid.Row="2"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold"/>
+            <ScrollView Grid.Row="3"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <WebView x:Name="appleLogin"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"/>
+            </ScrollView>
+            <Frame Grid.Row="4"
+                   Margin="50,10,50,10"
+                   CornerRadius="25"
+                   IsClippedToBounds="True"
+                   Padding="10"
+                   VerticalOptions="EndAndExpand">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="cancelLoginAP"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label x:Name="btnCancelar" 
+                       Text="Cancelar"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       TextColor="#e97e62"/>
+            </Frame>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

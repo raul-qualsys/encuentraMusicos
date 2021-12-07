@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.loginEM"
+             BackgroundImageSource="band2.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <Image Source="logoloading.png"
+               HeightRequest="40"
+               HorizontalOptions="CenterAndExpand"
+               Grid.Row="1"/>
+            <Label x:Name="lbLoginEM"
+               Text="Inicio de Sesión"
+               Grid.Row="2"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold"/>
+            <Frame Grid.Row="3"
+               Margin="15,0"
+               Padding="0"
+               CornerRadius="15"
+               IsClippedToBounds="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="buton1.png"
+                       Grid.Row="0"
+                       Grid.RowSpan="5"
+                       Margin="-25"
+                       Aspect="Fill"/>
+                    <Label Text="Correo electrónico:"
+                       Margin="15,15,15,0"
+                       x:Name="emUsrLbl"
+                       Grid.Row="0"
+                       TextColor="White"
+                       FontAttributes="Bold"/>
+                    <Entry x:Name="usrEmail" 
+                       Margin="15,0"
+                       Keyboard="Email"
+                       Grid.Row="1"
+                       Placeholder="Ingresar eMail"
+                       PlaceholderColor="Pink"
+                       TextColor="White"
+                       BackgroundColor="Transparent"/>
+                    <Button Text="Enviar"
+                        Margin="15,0"
+                        CornerRadius="20"
+                        Clicked="sendEmail"
+                        Grid.Row="2"
+                        BackgroundColor="White"
+                        TextColor="#e97e62"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        x:Name="enviarEmail"/>
+                    <Label Text="Se enviará un correo de verificacion a la cuenta de email indicada."
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="15,20,15,0"
+                       Grid.Row="3"
+                       TextColor="White"
+                       x:Name="lbCorreo"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="4"
+               Margin="50,70,50,10"
+               CornerRadius="25"
+               IsClippedToBounds="True"
+               Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="cancelLoginEM"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label x:Name="btnCancelar" 
+                   Text="Cancelar"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   TextColor="#e97e62"/>
+            </Frame>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

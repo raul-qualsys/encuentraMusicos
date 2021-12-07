@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.Administracion"
+             BackgroundImageSource="femsinger.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                                 BackgroundColor="Transparent" 
+                                 Orientation="Horizontal"
+                                 Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                                 BackgroundColor="#fff0f5"
+                                 Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <Image Source="logoloading.png"
+                   Grid.Row="1"
+                   HeightRequest="40"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="15,0,0,0"/>
+            <Label Grid.Row="2" 
+                   Text="Administración"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   x:Name="lbAdmin"/>
+            <ScrollView Grid.Row="3"
+                        Margin="0,0,0,15">
+                <Grid Margin="35,10,15,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!--Stack Configuración-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="0"
+                                 HorizontalOptions="StartAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="goCatalogos"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame CornerRadius="30"
+                               Padding="0"
+                               IsClippedToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="buton1.png"
+                                       Grid.Row="0"
+                                       WidthRequest="80"
+                                       HeightRequest="80"
+                                       Aspect="Fill"
+                                       Margin="-10"/>
+                                <Image Source="settingscat.png"
+                                       Margin="10"
+                                       WidthRequest="20"
+                                       Grid.Row="0"
+                                       x:Name="itemsButton"/>
+                            </Grid>
+                        </Frame>
+                        <Label VerticalOptions="CenterAndExpand"
+                               x:Name="lbCatalogos"
+                               Text="Configuración"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                    <!--Stack Admin. Usuarios-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="1"
+                                 HorizontalOptions="StartAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="goAdminUsuarios"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame CornerRadius="30"
+                               Padding="0"
+                               IsClippedToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="buton1.png"
+                                       Grid.Row="0"
+                                       WidthRequest="80"
+                                       HeightRequest="80"
+                                       Aspect="Fill"
+                                       Margin="-10"/>
+                                <Image Source="users.png"
+                                       Margin="10"
+                                       WidthRequest="20"
+                                       Grid.Row="0"
+                                       x:Name="usersButton"/>
+                            </Grid>
+                        </Frame>
+                        <Label VerticalOptions="CenterAndExpand"
+                               x:Name="lbUsersAdmin"
+                               Text="Administración de Músicos"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                    <!--Stack Reportes-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="2"
+                                 HorizontalOptions="StartAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="goReportes"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame CornerRadius="30"
+                               Padding="0"
+                               IsClippedToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="buton1.png"
+                                       Grid.Row="0"
+                                       WidthRequest="80"
+                                       HeightRequest="80"
+                                       Aspect="Fill"
+                                       Margin="-10"/>
+                                <Image Source="report.png"
+                                       Margin="10"
+                                       WidthRequest="20"
+                                       Grid.Row="0"
+                                       x:Name="reportButton"/>
+                            </Grid>
+                        </Frame>
+                        <Label VerticalOptions="CenterAndExpand"
+                               x:Name="lbReports"
+                               Text="Reportes"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                    <!--Stack Perfil Músico-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="3"
+                                 HorizontalOptions="StartAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="goPerfilMusico"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame CornerRadius="30"
+                               Padding="0"
+                               IsClippedToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="buton1.png"
+                                       Grid.Row="0"
+                                       WidthRequest="80"
+                                       HeightRequest="80"
+                                       Aspect="Fill"
+                                       Margin="-10"/>
+                                <Image Source="rocker.png"
+                                       Margin="10"
+                                       WidthRequest="20"
+                                       Grid.Row="0"
+                                       x:Name="perfilMusicoButton"/>
+                            </Grid>
+                        </Frame>
+                        <Label VerticalOptions="CenterAndExpand"
+                               x:Name="lbPerfilMusico"
+                               Text="Encuentra Músicos"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                    <!--Stack Cerrar Sesión-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="4"
+                                 HorizontalOptions="StartAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="logOut"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame CornerRadius="30"
+                           Padding="0"
+                           IsClippedToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="buton1.png"
+                                   Grid.Row="0"
+                                   WidthRequest="80"
+                                   HeightRequest="80"
+                                   Aspect="Fill"
+                                   Margin="-10"/>
+                                <Image Source="byeicon.png"
+                                   Margin="10"
+                                   WidthRequest="20"/>
+                            </Grid>
+                        </Frame>
+                        <Label VerticalOptions="CenterAndExpand"
+                           x:Name="lbCerrarSesion"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Text="Cerrar Sesión"/>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

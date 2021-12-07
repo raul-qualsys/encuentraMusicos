@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B22555E-516D-4EDA-B1E3-D34E90337D40}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>encuentraMusicos.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>encuentraMusicos.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchDebug>false</MtouchDebug>
+    <CodesignProvision>encuentraMusicos</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Development: Jose Raul Padron (W2GL673KBY)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Development: Jose Raul Padron (W2GL673KBY)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <OptimizePNGs>true</OptimizePNGs>
+    <BuildIpa>false</BuildIpa>
+    <CodesignProvision>VS: com.falymusic.encuentraMusicos Development</CodesignProvision>
+    <MtouchDebug>false</MtouchDebug>
+    <IOSDebugOverWiFi>false</IOSDebugOverWiFi>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Include="ClearCookies.cs" />
+    <Compile Include="CustomPageRenderer.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="SQLiteDB.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail402.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail581.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail801.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logoemail87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml">
+      <Version>2.13.0</Version>
+    </PackageReference>
+    <PackageReference Include="ImageCropper.Forms.Fix.v2">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.LocalNotification">
+      <Version>5.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.0.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.7.335</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>5.0.0.2083</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.OpenWhatsApp">
+      <Version>1.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\encuentraMusicos\encuentraMusicos.csproj">
+      <Project>{9C43BF1E-2D0F-4E10-AD68-E8DA3465C3D8}</Project>
+      <Name>encuentraMusicos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fondoloading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoloading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fondoinicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\musicboys.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\buton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pianista.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grupo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\currentlocation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\band2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\musician.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconband.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\single.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bandplaying.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cashms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playmusic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\femsinger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gallery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contacto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\earphones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guitar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\google.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\byeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whatsapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emailic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\musicsearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star1gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\good_things_happen.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\valoracion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\valorbusqueda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\valorperfil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\valorfull.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\valoracionpuntos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\items.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\musicsearchcat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settingscat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\closeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notificon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\apple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nomusic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\musicallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\update.png" />
+  </ItemGroup>
+</Project>

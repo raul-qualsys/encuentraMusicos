@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="encuentraMusicos.Views.popUpValoracion">
+    <Frame VerticalOptions="Center" 
+           HorizontalOptions="Center" 
+           Padding="0,10" 
+           Margin="15,0"
+           CornerRadius="25"
+           BackgroundColor="#e97e62">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Tu opinión es muy importante"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   x:Name="lbOpinion"
+                   TextColor="White"
+                   Grid.Row="0"/>
+            <Label x:Name="lbMusico"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   Margin="15,0"
+                   TextColor="White"
+                   Grid.Row="1"/>
+            <Frame Grid.Row="2"
+                   Margin="15,5"
+                   Padding="0"
+                   CornerRadius="25">
+                <Image Aspect="Fill"
+                       HeightRequest="160"
+                       x:Name="imageMusico"/>
+            </Frame>
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="3"
+                         HorizontalOptions="CenterAndExpand"
+                         Padding="40,0"
+                         Spacing="10">
+                <Image HeightRequest="20"
+                       HorizontalOptions="Center"
+                       x:Name="star1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="star1Clicked"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image HeightRequest="20"
+                       HorizontalOptions="Center"
+                       x:Name="star2">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="star2Clicked"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image HeightRequest="20"
+                       HorizontalOptions="Center"
+                       x:Name="star3">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="star3Clicked"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image HeightRequest="20"
+                       HorizontalOptions="Center"
+                       x:Name="star4">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="star4Clicked"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image HeightRequest="20"
+                       HorizontalOptions="Center"
+                       x:Name="star5">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="star5Clicked"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Frame Margin="15,0"
+                   CornerRadius="25"
+                   Padding="0"
+                   BackgroundColor="White"
+                   Grid.Row="4">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nombre"
+                           TextColor="#e97e62"
+                           VerticalOptions="Center"
+                           Margin="15,0,0,0"
+                           x:Name="lbNombre"/>
+                    <Entry x:Name="enNombre"
+                           Placeholder="Ingrese su nombre"
+                           TextColor="Black"
+                           VerticalOptions="Center"
+                           Keyboard="Text"
+                           MaxLength="200"
+                           HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame Margin="15,0"
+                   CornerRadius="25"
+                   Padding="0"
+                   BackgroundColor="White"
+                   Grid.Row="5">
+                <Editor Placeholder="Deja un mensaje al músico"
+                        Margin="15,0"
+                        MaxLength="300"
+                        TextColor="Black"
+                        Keyboard="Text"
+                        AutoSize="TextChanges"
+                        x:Name="edMensaje"/>
+            </Frame>
+            <Button Grid.Row="6"
+                    Text="Enviar"
+                    TextTransform="None"
+                    Margin="15,0"
+                    CornerRadius="25"
+                    BackgroundColor="White"
+                    TextColor="#e97e62"
+                    x:Name="btnEnviar"
+                    Clicked="sendValoracion"/>
+            <Label Text="Ignorar"
+                   Margin="0"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   x:Name="closeBtn"
+                   Grid.Row="7">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="eliminarValoracion"
+                                          NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </Frame>
+</popup:PopupPage>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.validacionEmail"
+             BackgroundImageSource="band2.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <Image Source="logoloading.png"
+               HeightRequest="40"
+               HorizontalOptions="CenterAndExpand"
+               Grid.Row="1"/>
+            <Label x:Name="lbLoginEM"
+               Text="Validación de eMail"
+               Grid.Row="2"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold"/>
+            <Frame Grid.Row="3"
+               Margin="15,0"
+               Padding="0"
+               CornerRadius="15"
+               IsClippedToBounds="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="buton1.png"
+                       Grid.Row="0"
+                       Grid.RowSpan="4"
+                       Margin="-45"
+                       Aspect="Fill"/>
+                    <Label LineBreakMode="WordWrap"
+                       Margin="15,30,15,0"
+                       x:Name="textUsuario"
+                       TextColor="White"
+                       Grid.Row="0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Para poder continuar con el registro, ingrese la clave enviada a su correo electrónico: " />
+                                <Span x:Name="idUsuarioEM"
+                                  FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry x:Name="codUsuario" 
+                       Placeholder="Clave de Validación"
+                       MaxLength="6"
+                       Keyboard="Numeric"
+                       Margin="45"
+                       TextColor="White"
+                       PlaceholderColor="Pink"
+                       BackgroundColor="Transparent"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"/>
+                    <Button Text="Validar"
+                        x:Name="validarEmail"
+                        CornerRadius="25"
+                        Margin="30,0,30,5"
+                        BackgroundColor="White"
+                        TextColor="#e97e62"
+                        Clicked="sendValidacion"
+                        Grid.Row="2"/>
+                    <Label Text="Cancelar Registro"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,25"
+                       x:Name="cancelarRegistro"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       Grid.Row="3">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="eliminarRegistro"
+                                              NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Frame>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

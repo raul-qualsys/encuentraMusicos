@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.Ubicaciones"
+             BackgroundImageSource="fondoinicio.png">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <StackLayout Orientation="Horizontal"
+                     Grid.Row="1">
+                <Image Source="logoloading.png"
+                   HeightRequest="40"
+                   Margin="55,0,0,0"
+                   HorizontalOptions="CenterAndExpand"/>
+                <Image Source="back.png"
+                   HorizontalOptions="End"
+                   Margin="0,10,20,0"
+                   WidthRequest="30"
+                   x:Name="btnBack">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goBack"
+                                          NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label Grid.Row="2"
+               Text="Ubicaciones"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               x:Name="lbUbicaciones"/>
+            <ScrollView Grid.Row="3">
+                <StackLayout>
+                    <CollectionView ItemsSource="{Binding Direccion}"
+                                Margin="15,0"
+                                x:Name="listaUbicaciones"
+                                SelectionMode="Single"
+                                SelectionChanged="selectDireccion">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#e97e62"
+                                   CornerRadius="25"
+                                   Padding="15"
+                                   BorderColor="Black">
+                                    <Label Text="{Binding titulo}"
+                                       FontSize="{Binding nombreFntSize}"
+                                       TextColor="White"
+                                       HorizontalOptions="CenterAndExpand"
+                                       FontAttributes="Bold"/>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="White" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Button Text="Agregar Nueva Ubicación"
+                        CornerRadius="25"
+                        Margin="15,10"
+                        x:Name="nuevaUbicacionBtn"
+                        Clicked="agregaUbicacion"
+                        TextTransform="None"
+                        BackgroundColor="White"
+                        TextColor="#e97e62"
+                        FontAttributes="Bold"/>
+                </StackLayout>
+            </ScrollView>
+            <!--Button Grid.Row="4"
+                Text="Cancelar"
+                CornerRadius="20"
+                Margin="20,10"
+                Clicked="goBack"/-->
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

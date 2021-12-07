@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.ResultadosBusqueda"
+             BackgroundImageSource="fondoinicio.png">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <StackLayout Orientation="Horizontal"
+                     Grid.Row="1">
+                <Image Source="logoloading.png"
+                   HeightRequest="40"
+                   Margin="55,0,0,0"
+                   HorizontalOptions="CenterAndExpand"/>
+                <Image Source="back.png"
+                   HorizontalOptions="End"
+                   Margin="0,10,20,0"
+                   x:Name="btnBack">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goBack"
+                                      NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label TextColor="White"
+               Grid.Row="2"
+               HorizontalOptions="CenterAndExpand"
+               x:Name="lbTituloBusqueda">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Búsqueda: "/>
+                        <Span x:Name="palabraBusqueda"
+                              FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="Resultados"
+                   TextColor="White"
+                   HorizontalOptions="StartAndExpand"
+                   FontAttributes="Bold"
+                   Grid.Row="3"
+                   Margin="15,0"
+                   x:Name="lbResultados"/>
+            <Label Text="Sin Resultados"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   x:Name="sinResultadosLbl"
+                   Grid.Row="4"
+                   Margin="15,0"/>
+            <CollectionView Grid.Row="4"
+                            Margin="15,0"
+                            ItemsSource="{Binding resultados}"
+                            x:Name="collectionMusicos"
+                            SelectionMode="Single"
+                            SelectionChanged="selectGrupo">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Black" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Frame Padding="0"
+                                   CornerRadius="15"
+                                   IsClippedToBounds="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0"
+                                           Grid.RowSpan="3"
+                                           Source="{Binding nombre_media}"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand"
+                                           HeightRequest="{Binding heightImage}"
+                                           Aspect="Fill" />
+                                    <StackLayout Grid.Row="0"
+                                                 Grid.RowSpan="3"
+                                                 BackgroundColor="Black"
+                                                 Opacity="{Binding darkOpacity}"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="FillAndExpand" />
+                                    <StackLayout Grid.Row="0"
+                                                 HorizontalOptions="StartAndExpand"
+                                                 VerticalOptions="EndAndExpand"
+                                                 Margin="30,0,30,0">
+                                        <Label Text="{Binding nombre_musico}"
+                                               TextColor="White"
+                                               FontAttributes="Bold"
+                                               FontSize="{Binding lbNombreFntSize}" />
+                                        <Label Text="{Binding actividad_musico}"
+                                               TextColor="White"
+                                               HeightRequest="{Binding heightActividad}"
+                                               FontSize="{Binding actFntSize}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"
+                                                 Grid.Row="1"
+                                                 Margin="30,0,0,10">
+                                        <Image Source="star1.png"
+                                               HeightRequest="{Binding imStarHeight}"
+                                               HorizontalOptions="Start"
+                                               IsVisible="{Binding star1}" />
+                                        <Image Source="star1.png"
+                                               HeightRequest="{Binding imStarHeight}"
+                                               HorizontalOptions="Start"
+                                               IsVisible="{Binding star2}" />
+                                        <Image Source="star1.png"
+                                               HeightRequest="{Binding imStarHeight}"
+                                               HorizontalOptions="Start"
+                                               IsVisible="{Binding star3}" />
+                                        <Image Source="star1.png"
+                                               HeightRequest="{Binding imStarHeight}"
+                                               HorizontalOptions="Start"
+                                               IsVisible="{Binding star4}" />
+                                        <Image Source="star1.png"
+                                               HeightRequest="{Binding imStarHeight}"
+                                               HorizontalOptions="Start"
+                                               IsVisible="{Binding star5}" />
+                                        <Label Text="{Binding precio}"
+                                               TextColor="White"
+                                               HorizontalOptions="EndAndExpand"
+                                               Margin="0,0,20,0"
+                                               FontSize="{Binding lbPrecioFontsize}" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                            <BoxView VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     HeightRequest="1"
+                                     WidthRequest="50"  
+                                     Color="Transparent"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

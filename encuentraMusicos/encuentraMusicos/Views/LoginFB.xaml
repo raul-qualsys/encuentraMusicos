@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.LoginFB"
+             BackgroundImageSource="band2.jpg">
+    <Grid x:Name="gridPrincipal">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <OnPlatform x:TypeArguments="View">
+            <OnPlatform.iOS>
+                <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+            </OnPlatform.Android>
+        </OnPlatform>
+        <Image Source="logoloading.png"
+               HeightRequest="40"
+               HorizontalOptions="CenterAndExpand"
+               Grid.Row="1"/>
+        <Label x:Name="lbLoginFB"
+               Text="Inicio de Sesión"
+               Grid.Row="2"
+               TextColor="White"
+               HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold"/>
+        <Frame Grid.Row="3"
+               Margin="15,0"
+               Padding="0"
+               CornerRadius="15"
+               IsClippedToBounds="True">
+            <WebView x:Name="fbLoginWebView"
+                     VerticalOptions="FillAndExpand"/>
+        </Frame>
+        <Frame Grid.Row="4"
+               Margin="50,0,50,10"
+               CornerRadius="25"
+               IsClippedToBounds="True"
+               Padding="10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="cancelLoginFB"
+                                      NumberOfTapsRequired="1"/>
+            </Frame.GestureRecognizers>
+            <Label x:Name="btnCancelar" 
+                   Text="Cancelar"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   TextColor="#e97e62"/>
+        </Frame>
+    </Grid>
+</ContentPage>

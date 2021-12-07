@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.LoginCliente"
+             BackgroundImageSource="musicboys.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Atrás"
+               HorizontalOptions="EndAndExpand"
+               TextColor="White"
+               Margin="0,15,25,0"
+               x:Name="btAtras">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goBack"
+                                      NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Miles de propuestas musicales a tu alcance"
+               Grid.Row="1"
+               TextColor="White"
+               HorizontalOptions="StartAndExpand"
+               FontAttributes="Bold"
+               Margin="25,0,65,0"
+               x:Name="lbTitulo1"/>
+            <Label Text="Encuentra grupos musicales alrededor de tu ubicación"
+               Grid.Row="2"
+               TextColor="White"
+               HorizontalOptions="EndAndExpand"
+               FontAttributes="Bold"
+               x:Name="lbTitulo2"/>
+            <Label Grid.Row="3"
+               Text="Inicio de Sesión"
+               TextColor="White"
+               x:Name="lbInicioSesion"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"/>
+            <Frame Grid.Row="4"
+               Margin="30,10,30,10"
+               CornerRadius="25"
+               Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="inicioCliente"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Facebook"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       TextColor="White"
+                       x:Name="lbFbUsuario"/>
+                    <Image Source="facebook.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imFbUsuario"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="5"
+               Margin="30,0,30,10"
+               CornerRadius="25"
+               Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="inicioCliente"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Google"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       TextColor="White"
+                       x:Name="lbGoogleUsuario"/>
+                    <Image Source="google.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imGoogleUsuario"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="6"
+               Margin="30,0,30,10"
+               CornerRadius="25"
+               Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="inicioCliente"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="eMail"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       TextColor="White"
+                       x:Name="lbeMailUsuario"/>
+                    <Image Source="email.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imeMailUsuario"/>
+                </Grid>
+            </Frame>
+            <Image Source="logoloading.png"
+               Grid.Row="7"
+               x:Name="imLogoLogin">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goBack"
+                                      NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

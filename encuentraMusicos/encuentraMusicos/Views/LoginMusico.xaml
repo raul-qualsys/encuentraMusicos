@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="encuentraMusicos.Views.LoginMusico"
+             BackgroundImageSource="pianista.jpg">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <Label Text="Atrás"
+               Grid.Row="1"
+               HorizontalOptions="EndAndExpand"
+               TextColor="White"
+               Margin="0,15,25,0"
+               x:Name="btAtras">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goBack"
+                                      NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Destaca entre miles de músicos"
+               Grid.Row="2"
+               TextColor="White"
+               HorizontalOptions="StartAndExpand"
+               FontAttributes="Bold"
+               Margin="25,0,65,0"
+               x:Name="lbTitulo1"/>
+            <Label Text="Muestra tu talento y consigue clientes de manera fácil"
+               Grid.Row="3"
+               TextColor="White"
+               HorizontalOptions="EndAndExpand"
+               FontAttributes="Bold"
+               x:Name="lbTitulo2"/>
+            <Label Grid.Row="4"
+               x:Name="lbInicioSesion"
+               Text="Inicio de Sesión"
+               TextColor="White"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"/>
+            <Frame Grid.Row="5"
+                   Margin="30,10,30,10"
+                   CornerRadius="25"
+                   Padding="0"
+                   IsClippedToBounds="True"
+                   x:Name="appleSignIn">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goLoginApple"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Source="buton1.png"
+                           Aspect="AspectFill"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Continuar con Apple"
+                           TextColor="White"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           x:Name="lbApMusico"/>
+                    <Image Source="apple.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imApMusico"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="6"
+               Margin="30,10,30,10"
+               CornerRadius="25"
+               Padding="0"
+               IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goLoginFacebook"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Facebook"
+                       TextColor="White"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="lbFbMusico"/>
+                    <Image Source="facebook.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imFbMusico"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="7"
+               Margin="30,0,30,10"
+               CornerRadius="25"
+               Padding="0"
+               IsClippedToBounds="True"
+               IsVisible="false">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goLoginGMail"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Google"
+                       TextColor="White"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="lbGoogleMusico"/>
+                    <Image Source="google.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imGoogleMusico"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="8"
+               Margin="30,0,30,10"
+               CornerRadius="25"
+               Padding="0"
+               IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goLoginEMail"
+                                      NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Grid Margin="-5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Source="buton1.png"
+                       Aspect="AspectFill"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="eMail"
+                       TextColor="White"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="lbeMailMusico"/>
+                    <Image Source="email.png"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HeightRequest="25"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       x:Name="imeMailUsuario"/>
+                </Grid>
+            </Frame>
+            <Image Source="logoloading.png"
+               Grid.Row="9"
+               x:Name="imLogoLogin">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="goBack"
+                                      NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

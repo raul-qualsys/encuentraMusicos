@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="encuentraMusicos.Views.PrincipalBusqueda"
+             BackgroundImageSource="fondoinicio.png">
+    <StackLayout>
+        <Grid x:Name="gridPrincipal">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <OnPlatform x:TypeArguments="View">
+                <OnPlatform.iOS>
+                    <StackLayout HeightRequest="30" 
+                             BackgroundColor="Transparent" 
+                             Orientation="Horizontal"
+                             Grid.Row="0"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <StackLayout HeightRequest="0" 
+                             BackgroundColor="#fff0f5"
+                             Grid.Row="0"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <StackLayout Orientation="Horizontal"
+                     Grid.Row="1">
+                <Image Source="logoloading.png"
+                   HeightRequest="40"
+                   Margin="55,0,0,0"
+                   HorizontalOptions="CenterAndExpand"/>
+                <Image Source="back.png"
+                   HorizontalOptions="End"
+                   Margin="0,10,20,0"
+                   WidthRequest="30"
+                   x:Name="btnBack">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goBack"
+                                          NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <ScrollView x:Name="scrPrincipal"
+                    Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="0"
+                           Padding="0"
+                           Margin="45"
+                           CornerRadius="25"
+                           IsClippedToBounds="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="goBusqueda"
+                                                  NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                        <Grid Margin="-5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image Source="buton1.png"
+                                   Grid.Row="0" />
+                            <Label Text="Buscar"
+                                   Grid.Row="0"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   FontAttributes="Bold"
+                                   x:Name="lbBtnBuscar0"
+                                   TextColor="White" />
+                        </Grid>
+                    </Frame>
+                    <StackLayout Grid.Row="1"
+                                 Margin="0,15,0,0">
+                        <Label Text="Rango de Precios por hora"
+                               TextColor="White"
+                               Margin="15,0"
+                               HorizontalOptions="CenterAndExpand"
+                               FontAttributes="Bold"
+                               x:Name="lbRangoPrecios" />
+                        <Slider Maximum="20000"
+                                Minimum="100"
+                                Value="20000"
+                                ValueChanged="OnSliderValueChanged"
+                                Margin="25,0"
+                                x:Name="precioSlider" />
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand">
+                            <Label Text="$100"
+                                   TextColor="White"
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="40,0,0,0"
+                                   x:Name="precioInicial" />
+                            <Label x:Name="precioFinal"
+                                   TextColor="White"
+                                   HorizontalOptions="EndAndExpand"
+                                   Margin="0,0,40,0" />
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Búsqueda"
+                       Grid.Row="2"
+                       TextColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="lbTitulo1"/>
+                    <Frame Grid.Row="3"
+                       Margin="40,0"
+                       CornerRadius="25"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                        <Entry Placeholder="Busco... (ej. Mariachi, Norteño o Cumbia)"
+                           Margin="10,0"
+                           x:Name="busqueda"
+                           ClearButtonVisibility="WhileEditing"/>
+                    </Frame>
+                    <Grid Grid.Row="4"
+                      Margin="15,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" 
+                           Text="Punto de Referencia"
+                           HorizontalOptions="CenterAndExpand"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           x:Name="lbTitulo2"/>
+                        <Frame Grid.Row="1" 
+                           Padding="0"
+                           CornerRadius="15"
+                           IsClippedToBounds="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <maps:Map x:Name="MapView"
+                                      IsShowingUser="False"
+                                      MapClicked="agregaPin"
+                                      Grid.Row="0"/>
+                                <Frame Grid.Row="0"
+                                   x:Name="imGetCurrent"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="End"
+                                   Margin="0"
+                                   Padding="10"
+                                   BackgroundColor="Transparent"
+                                   IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="goCurrent"
+                                                          NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <Image Source="currentlocation.png"
+                                       HeightRequest="25"/>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                    <!--Label x:Name="detalleUbicacion"
+                       Grid.Row="3"
+                       Margin="15,0,60,0"
+                       TextColor="White"/-->
+                    <Frame CornerRadius="25"
+                       Padding="0"
+                       Grid.Row="5"
+                       Margin="15,0">
+                        <Editor x:Name="detalleUbicacion"
+                            Margin="15,0"
+                            BackgroundColor="White"
+                            TextColor="Black"
+                            AutoSize="TextChanges"
+                            Placeholder="Indique colonia, municipio o estado"/>
+                    </Frame>
+                    <Label x:Name="agregarUbicacion"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Grid.Row="6">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="actualizaMapa"
+                                                  NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Frame Grid.Row="7"
+                       Padding="0"
+                       Margin="45"
+                       CornerRadius="25"
+                       IsClippedToBounds="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="goBusqueda"
+                                              NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+                        <Grid Margin="-5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="buton1.png"
+                               Grid.Row="0"/>
+                            <Label Text="Buscar"
+                               Grid.Row="0"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"
+                               FontAttributes="Bold"
+                               x:Name="lbBtnBuscar"
+                               TextColor="White"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </Grid>
+        <Grid x:Name="sinConexion"
+              VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoloading.png"
+                   Grid.Row="0"
+                   HeightRequest="150"
+                   x:Name="logoLoadingSC"/>
+            <Label x:Name="lbSinConexion"
+                   Text="Sin Conexión"
+                   Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   Margin="0,60,0,0"/>
+            <Frame Margin="65,0"
+                   Grid.Row="2"
+                   Padding="10"
+                   BackgroundColor="White"
+                   CornerRadius="25"
+                   IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="reintentar"
+                                          NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Reintentar"
+                       TextColor="#e97e62"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       x:Name="reintentarBtn"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

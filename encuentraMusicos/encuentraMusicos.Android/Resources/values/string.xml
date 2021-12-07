@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<string name="facebook_app_name">Encuentra Músicos</string>
+	<string name="facebook_app_id">
+		169133225273780
+	</string>
+	<string name="fb_login_protocol_scheme">
+		fb169133225273780
+	</string>
+</resources>

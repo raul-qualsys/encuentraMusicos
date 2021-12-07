@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="encuentraMusicos.Views.popUpDetalleMusico">
+    <Frame Margin="15,0"
+           CornerRadius="25"
+           Padding="0"
+           IsClippedToBounds="True"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="buton1.png"
+                   Margin="-45"
+                   Aspect="Fill"
+                   Grid.Row="0"
+                   HeightRequest="40"
+                   Grid.RowSpan="5"/>
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Margin="0,15">
+                <Label x:Name="lbEdMusico"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Image Source="closeicon.png"
+                       HeightRequest="20"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Margin="0,0,15,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="cerrarPopUp"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Frame CornerRadius="25"
+                   IsClippedToBounds="True"
+                   Padding="0"
+                   Grid.Row="1"
+                   Margin="15,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="imgMusico"
+                           Aspect="Fill"
+                           HeightRequest="160"
+                           Grid.Row="0"/>
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="End"
+                                 Margin="15,15">
+                        <Image Source="star1.png"
+                               HeightRequest="20"
+                               x:Name="star1"/>
+                        <Image Source="star1.png"
+                               HeightRequest="20"
+                               x:Name="star2"/>
+                        <Image Source="star1.png"
+                               HeightRequest="20"
+                               x:Name="star3"/>
+                        <Image Source="star1.png"
+                               HeightRequest="20"
+                               x:Name="star4"/>
+                        <Image Source="star1.png"
+                               HeightRequest="20"
+                               x:Name="star5"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="White"
+                   Margin="10,0,10,0"
+                   Padding="0"
+                   CornerRadius="25"
+                   Grid.Row="2"
+                   IsClippedToBounds="True">
+                <StackLayout Spacing="0">
+                    <Label Text="Estatus"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Start"
+                           Margin="15,10,0,0"
+                           x:Name="lbEstatus"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch x:Name="swEstatus" 
+                                IsToggled="true"
+                                Toggled="swEstatusToggled"
+                                HorizontalOptions="Start"
+                                Margin="15,0,15,10"
+                                OnColor="Pink"
+                                ThumbColor="#e97e62"/>
+                        <Label x:Name="estatusValue"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Button x:Name="enviarBtn"
+                    Text="Guardar"
+                    TextTransform="None"
+                    BackgroundColor="White"
+                    FontAttributes="Bold"
+                    TextColor="#e97e62"
+                    Margin="40,0,40,15"
+                    Padding="10"
+                    CornerRadius="25"
+                    Grid.Row="3"
+                    Clicked="guardaMusico"/>
+        </Grid>
+    </Frame>
+</popup:PopupPage>
