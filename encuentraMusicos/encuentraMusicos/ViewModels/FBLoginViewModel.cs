@@ -91,7 +91,7 @@ namespace encuentraMusicos.ViewModels
 
             var jsonData = await CrossFacebookClient.Current.RequestUserDataAsync
             (
-                  new string[] { "id", "name", "email", "picture", "cover", "friends" }, new string[] { }
+                  new string[] { "id", "name", "picture", "cover", "friends" }, new string[] { }
             );
 
             var data = JObject.Parse(jsonData.Data);
@@ -99,7 +99,6 @@ namespace encuentraMusicos.ViewModels
             {
                 FullName = data["name"].ToString(),
                 Picture = new UriImageSource { Uri = new Uri($"{data["picture"]["data"]["url"]}") },
-                Email = data["email"].ToString()
             };
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MySQLite.db3");
             var db = new SQLiteConnection(dbPath);

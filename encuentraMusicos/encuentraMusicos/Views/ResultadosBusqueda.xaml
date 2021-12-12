@@ -99,7 +99,7 @@
                                            HorizontalOptions="FillAndExpand"
                                            VerticalOptions="FillAndExpand"
                                            HeightRequest="{Binding heightImage}"
-                                           Aspect="Fill" />
+                                           Aspect="AspectFill" />
                                     <StackLayout Grid.Row="0"
                                                  Grid.RowSpan="3"
                                                  BackgroundColor="Black"

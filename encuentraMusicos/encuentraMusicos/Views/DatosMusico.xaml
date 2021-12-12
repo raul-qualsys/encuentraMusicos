@@ -205,12 +205,19 @@
                                Grid.Row="4"
                                IsClippedToBounds="True">
                             <StackLayout Spacing="0">
+                                <Label Text="¿Cómo agrego un vídeo?"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="verDemoVideos"
+                                                              NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
                                 <Label Text="Video de muestra"
                                        VerticalOptions="CenterAndExpand"
                                        HorizontalOptions="Start"
                                        Margin="15,10,0,0"
                                        x:Name="lbYoutube" />
-                                <Entry Placeholder="URL"
+                                <Entry Placeholder="URL de Youtube o Facebook"
                                        ClearButtonVisibility="WhileEditing"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="CenterAndExpand"

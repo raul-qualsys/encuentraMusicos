@@ -121,7 +121,11 @@ namespace encuentraMusicos.Views
         private void guardarDatos(object sender, EventArgs e)
         {
             guardaDatos.IsEnabled = false;
-            bool isEmail = Regex.IsMatch(enEmail.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            bool isEmail = false;
+            if (!string.IsNullOrEmpty(enEmail.Text))
+            {
+                isEmail = Regex.IsMatch(enEmail.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            }
 
             if (string.IsNullOrEmpty(enTelefono.Text)&& string.IsNullOrEmpty(enWhats.Text)&& string.IsNullOrEmpty(enFB.Text)&& string.IsNullOrEmpty(enEmail.Text))
             {

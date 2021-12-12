@@ -550,6 +550,10 @@ namespace encuentraMusicos.Views
                 Html="<p></p"
             };
         }
+        private void verDemoVideos(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new DemoVideos(usuario, tpMusico));
+        }
         protected override bool OnBackButtonPressed() => true;
     }
 }
